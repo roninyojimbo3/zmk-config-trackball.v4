@@ -7,6 +7,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 //#include <behaviors/mouse_keys.dtsi>
 //#include <input/processors.dtsi>
+#include <behaviors/sensor_attr_cycle.dtsi>
 
 
 // Label re-defined: Fingers - Front, Thumb - Backwards
@@ -39,6 +40,22 @@
             quick-tap-ms = <125>;
             bindings = <&mo>, <&mkp>;
         };
+    cpi_cycle: cpi_cycle {
+
+            compatible = "zmk,behavior-sensor-attr-cycle";
+
+            label = "CPI_CYCLE";
+
+            #binding-cells = <0>;
+
+            sensor = <&trackball>;
+
+            attribute = "cpi";
+
+            values = <400 800 1200 1600>;
+
+        };
+
     };
 
 keymap {
@@ -152,15 +169,20 @@ BACK_LEFT {
 
 /* 6 */ DPI_UTIL {
     bindings = <
-        &trans &trans
-        &trans &trans
-        &trans &trans &trans &trans
+        /* Bottom row */
+        &trans        &trans
+
+        /* Middle row */
+        &cpi_cycle    &trans
+
+        /* Top row */
+        &trans        &trans        &trans        &trans
 
         /* Inner Buttons - keep dedicated */
-        &trans &trans &trans
+        &trans        &trans        &trans
 
         /* Orientation / handedness - keep dedicated */
-        &trans &trans
+        &trans        &trans
     >;
 };
 
