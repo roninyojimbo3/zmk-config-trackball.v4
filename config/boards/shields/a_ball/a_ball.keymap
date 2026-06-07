@@ -28,7 +28,20 @@
 //#include <dt-bindings/zmk/pointing.h>
 
 / {
-    keymap {
+    
+    behaviors {
+        mouse_layer_tap: mouse_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOUSE_LAYER_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            bindings = <&mo>, <&mkp>;
+        };
+    };
+
+keymap {
         compatible = "zmk,keymap";
 
 //        map = <
@@ -48,20 +61,20 @@
 	// Layer 0
 FRONT_RIGHT {
     bindings = <
-        /* Bottom two */
-        &mkp LCLK              &lt MEDIA RCLK
+        /* Bottom row: physical right, physical left */
+        &mouse_layer_tap MEDIA RCLK   &mkp LCLK
 
-        /* Middle two - no secondary layer */
-        &mkp MB4               &mkp MB5
+        /* Middle row: physical left, physical right */
+        &mkp MB5                      &mkp MB4
 
-        /* Top four */
-        &lt DPI_UTIL MCLK      &lt SNIPE ENTER      &lt EDIT ESC      &mo FRONT_SCROLL
+        /* Top row: physical right, second, third, physical left */
+        &mo FRONT_SCROLL              &lt SNIPE ENTER      &lt EDIT ESC      &mouse_layer_tap DPI_UTIL MCLK
 
         /* Inner buttons - stock */
-        &bt BT_CLR             &bt BT_NXT          &studio_unlock
+        &bt BT_CLR                    &bt BT_NXT          &studio_unlock
 
         /* Orientation / handedness - stock */
-        &mo 2                  &mo 1
+        &mo 2                         &mo 1
     >;
 };
 
@@ -173,15 +186,20 @@ BACK_LEFT {
 
 /* 8 */ EDIT {
     bindings = <
-        &kp LC(Z)       &kp LC(X)
-        &kp LC(C)       &kp LC(V)
-        &kp LS(LC(Z))   &trans &trans &trans
+        /* Bottom row: physical right, physical left */
+        &kp LS(LC(Z))   &kp LC(Z)
 
-        /* Inner Buttons - keep dedicated */
-        &trans &trans &trans
+        /* Middle row */
+        &trans          &trans
+
+        /* Top row: physical right, second, third, physical left */
+        &kp LC(V)       &kp LC(C)       &trans       &kp LC(X)
+
+        /* Inner buttons - keep dedicated */
+        &trans          &trans          &trans
 
         /* Orientation / handedness - keep dedicated */
-        &trans &trans
+        &trans          &trans
     >;
 };
 
