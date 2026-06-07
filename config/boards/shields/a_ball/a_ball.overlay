@@ -3,6 +3,7 @@
 #include "a_ball-layout.dtsi"
 #include <dt-bindings/zmk/input_transform.h>
 #include "a_ball.dtsi"
+#include <behaviors/input_gestures_accel.dtsi>
 
 &a_ball_layout {
     transform = <&default_transform>;
@@ -101,6 +102,33 @@
            fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
            thus, the sensor would be a `wakeup-source` */
     };
+	&pointer_accel {
+	    input-type = <INPUT_EV_REL>;
+	    codes = <INPUT_REL_X INPUT_REL_Y>;
+	
+	    /* Base feel around 600 CPI */
+	    sensitivity = <1000>;
+	
+	    /* Slow movements stay normal/precise */
+	    min-factor = <1000>;
+	
+	    /* Fast movements ramp up to about 4x = 600 → 2400 feel */
+	    max-factor = <4000>;
+	
+	    /* Smooth/simple acceleration curve */
+	    acceleration-exponent = <1>;
+	
+	    /* Keep slight Y boost for widescreen */
+	    y-boost = <1100>;
+	
+	    /* Start acceleration after small/normal movements */
+	    speed-threshold = <700>;
+	
+	    /* Reach max acceleration during fast throws */
+	    speed-max = <1800>;
+	
+	    sensor-dpi = <600>;
+	};
 };
                               
 / {
