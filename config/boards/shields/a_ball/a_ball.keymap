@@ -43,7 +43,7 @@
         cpi_cycle: sensor_dpi_cycle {
             compatible = "zmk,behavior-sensor-attr-cycle";
             #binding-cells = <1>;
-            values = <400 800 1200 1600>;
+           values = <300 600 900 1200 1800 2400>;
             attr = <0>;
             sensor_device = <&trackball>;
             display-name = "CPI cycle";
@@ -166,8 +166,7 @@ BACK_LEFT {
         &trans        &trans
 
         /* Middle row */
-        &cpi_cycle(1)    &trans
-
+        &trans        &cpi_cycle(1)
         /* Top row */
         &trans        &trans        &trans        &trans
 
