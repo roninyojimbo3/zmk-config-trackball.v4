@@ -48,7 +48,7 @@
 
             #binding-cells = <0>;
 
-            sensor = <&trackball>;
+            sensor-device = <&trackball>;
 
             attribute = "cpi";
 
