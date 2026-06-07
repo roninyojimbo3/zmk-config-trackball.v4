@@ -102,15 +102,14 @@ FRONT_LEFT {
 	// Layer 2
 BACK_RIGHT {
     bindings = <
-        /* Flipped from layer 0 */
         &mouse_layer_tap DPI_UTIL MCLK   &mo BACKWARD_SCROLL
 
         &mkp MB5                         &mkp MB4
 
-        &mouse_layer_tap MEDIA RCLK      &lt SNIPE ENTER      &lt EDIT ESC      &mkp LCLK
+        &mkp LCLK                        &lt EDIT ESC        &lt SNIPE ENTER   &mouse_layer_tap MEDIA RCLK
 
         /* Inner buttons */
-        &trans                           &trans              &trans
+        &trans                           &trans             &trans
 
         /* Orientation / handedness */
         &trans                           &trans
@@ -120,15 +119,14 @@ BACK_RIGHT {
 // Layer 3
 BACK_LEFT {
     bindings = <
-        /* Flipped from layer 1 */
         &mo BACKWARD_SCROLL          &mouse_layer_tap DPI_UTIL MCLK
 
         &mkp MB4                     &mkp MB5
 
-        &mkp LCLK                    &lt EDIT ESC      &lt SNIPE ENTER      &mouse_layer_tap MEDIA RCLK
+        &mouse_layer_tap MEDIA RCLK  &lt SNIPE ENTER   &lt EDIT ESC     &mkp LCLK
 
         /* Inner buttons */
-        &trans                       &trans            &trans
+        &trans                       &trans           &trans
 
         /* Orientation / handedness */
         &trans                       &trans
