@@ -82,60 +82,56 @@ FRONT_RIGHT {
 	// Layer 1
 FRONT_LEFT {
     bindings = <
-        /* Bottom two */
-        &mkp LCLK              &lt MEDIA RCLK
+        /* Bottom row: mirror of layer 0 */
+        &mkp LCLK                    &mouse_layer_tap MEDIA RCLK
 
-        /* Middle two - no secondary layer */
-        &mkp MB4               &mkp MB5
+        /* Middle row: mirror of layer 0 */
+        &mkp MB4                     &mkp MB5
 
-        /* Top four */
-        &lt DPI_UTIL MCLK      &lt SNIPE ENTER      &lt EDIT ESC      &mo FRONT_SCROLL
+        /* Top row: mirror of layer 0 */
+        &mouse_layer_tap DPI_UTIL MCLK   &lt EDIT ESC      &lt SNIPE ENTER      &mo FRONT_SCROLL
 
         /* Inner buttons */
-        &trans                 &trans              &trans
+        &trans                       &trans              &trans
 
         /* Orientation / handedness */
-        &trans                 &trans
+        &trans                       &trans
     >;
 };
 
 	// Layer 2
 BACK_RIGHT {
     bindings = <
-        /* Top-left when backward */
-        &lt DPI_UTIL MCLK      &mo BACKWARD_SCROLL
+        /* Flipped from layer 0 */
+        &mouse_layer_tap DPI_UTIL MCLK   &mo BACKWARD_SCROLL
 
-        /* Middle two - no secondary layer */
-        &mkp MB4               &mkp MB5
+        &mkp MB5                         &mkp MB4
 
-        /* Bottom / remaining corrected positions */
-        &mkp LCLK              &lt SNIPE ENTER      &lt EDIT ESC      &lt MEDIA RCLK
+        &mouse_layer_tap MEDIA RCLK      &lt SNIPE ENTER      &lt EDIT ESC      &mkp LCLK
 
         /* Inner buttons */
-        &trans                 &trans              &trans
+        &trans                           &trans              &trans
 
         /* Orientation / handedness */
-        &trans                 &trans
+        &trans                           &trans
     >;
 };
  
-	// Layer 3
+// Layer 3
 BACK_LEFT {
     bindings = <
-        /* Top-right when backward */
-        &mo BACKWARD_SCROLL    &lt DPI_UTIL MCLK
+        /* Flipped from layer 1 */
+        &mo BACKWARD_SCROLL          &mouse_layer_tap DPI_UTIL MCLK
 
-        /* Middle two - no secondary layer */
-        &mkp MB4               &mkp MB5
+        &mkp MB4                     &mkp MB5
 
-        /* Bottom / remaining corrected positions */
-        &lt MEDIA RCLK         &lt SNIPE ENTER      &lt EDIT ESC      &mkp LCLK
+        &mkp LCLK                    &lt EDIT ESC      &lt SNIPE ENTER      &mouse_layer_tap MEDIA RCLK
 
         /* Inner buttons */
-        &trans                 &trans              &trans
+        &trans                       &trans            &trans
 
         /* Orientation / handedness */
-        &trans                 &trans
+        &trans                       &trans
     >;
 };
  
