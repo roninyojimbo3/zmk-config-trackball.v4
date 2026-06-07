@@ -125,13 +125,21 @@
     };
 
 
-    /* layer-5 both hands back scroll override */
+      /* layer-5 both hands back scroll override */
     back_scroller: back_scroller{
         layers           = <5>;
         input-processors = <
             //&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
             &zip_xy_scaler 1 15                              // Scales the scroll speed
             &zip_xy_to_scroll_mapper                         // Converts XY movement to scroll events
+        >;
+    };
+
+    /* layer-7 snipe / precision pointer */
+    snipe_pointer: snipe_pointer {
+        layers           = <7>;
+        input-processors = <
+            &zip_xy_scaler 1 4
         >;
     };
 
