@@ -205,15 +205,20 @@ BACK_LEFT {
 
 /* 9 */ MEDIA {
     bindings = <
-        &kp C_PREV      &kp C_PP
-        &kp C_NEXT      &kp C_MUTE
-        &kp C_VOL_DN    &kp C_VOL_UP &trans &trans
+        /* Bottom row: physical right, physical left */
+        &trans        &trans
+
+        /* Middle row: physical left, physical right */
+        &kp C_VOL_DN  &kp C_VOL_UP
+
+        /* Top row: physical right, second, third, physical left */
+        &kp C_MUTE    &kp C_PP       &kp C_NEXT     &kp C_PREV
 
         /* Inner Buttons - keep dedicated */
-        &trans &trans &trans
+        &trans        &trans         &trans
 
         /* Orientation / handedness - keep dedicated */
-        &trans &trans
+        &trans        &trans
     >;
 };
 
