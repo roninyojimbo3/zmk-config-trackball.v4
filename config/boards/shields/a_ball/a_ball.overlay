@@ -107,13 +107,13 @@
 
     sensitivity = <1000>;
     min-factor = <1000>;
-    max-factor = <4000>;
+    max-factor = <6000>;
 
-    acceleration-exponent = <1>;
-    y-boost = <1100>;
+    acceleration-exponent = <2>;
+    y-boost = <1000>;
 
-    speed-threshold = <700>;
-    speed-max = <1800>;
+    speed-threshold = <300>;
+    speed-max = <900>;
 
     sensor-dpi = <600>;
 };
