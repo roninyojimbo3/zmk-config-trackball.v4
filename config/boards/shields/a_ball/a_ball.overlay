@@ -98,39 +98,26 @@
         y-input-code = <INPUT_REL_Y>;
 
         force-awake;
-        /* keep the sensor awake while ZMK activity state is ACTIVE,
-           fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
-           thus, the sensor would be a `wakeup-source` */
     };
-	&pointer_accel {
-	    input-type = <INPUT_EV_REL>;
-	    codes = <INPUT_REL_X INPUT_REL_Y>;
-	
-	    /* Base feel around 600 CPI */
-	    sensitivity = <1000>;
-	
-	    /* Slow movements stay normal/precise */
-	    min-factor = <1000>;
-	
-	    /* Fast movements ramp up to about 4x = 600 → 2400 feel */
-	    max-factor = <4000>;
-	
-	    /* Smooth/simple acceleration curve */
-	    acceleration-exponent = <1>;
-	
-	    /* Keep slight Y boost for widescreen */
-	    y-boost = <1100>;
-	
-	    /* Start acceleration after small/normal movements */
-	    speed-threshold = <700>;
-	
-	    /* Reach max acceleration during fast throws */
-	    speed-max = <1800>;
-	
-	    sensor-dpi = <600>;
-	};
 };
-                              
+
+&pointer_accel {
+    input-type = <INPUT_EV_REL>;
+    codes = <INPUT_REL_X INPUT_REL_Y>;
+
+    sensitivity = <1000>;
+    min-factor = <1000>;
+    max-factor = <4000>;
+
+    acceleration-exponent = <1>;
+    y-boost = <1100>;
+
+    speed-threshold = <700>;
+    speed-max = <1800>;
+
+    sensor-dpi = <600>;
+};
+
 / {
   trackball_listener {
     compatible = "zmk,input-listener";
